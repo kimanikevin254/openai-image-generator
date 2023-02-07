@@ -7,9 +7,10 @@ const openai = new OpenAIApi(configuration);
 
 // generate an image
 const generateImage = async (req, res) => {
+    const { prompt } = request.body
     try {
         const response = await openai.createImage({
-            prompt: "a white siamese cat",
+            prompt,
             n: 1,
             size: "1024x1024",
           });
